@@ -1,0 +1,106 @@
+:root {
+  --clr-bg-body: hsl(210, 46%, 95%);
+  --clr-bg-share: hsl(217, 19%, 35%);
+
+  --fc-heading: hsl(217, 19%, 35%);
+  --fc-paragraph: hsl(214, 17%, 51%);
+  --fc-details: hsl(212, 23%, 69%);
+
+  --btn-clr: hsl(210, 46%, 95%);
+  --btn-clr-active: hsl(217, 19%, 35%);
+
+  --ff-primary: "Manrope", sans-serif;
+
+  --fs-heading: 1rem;
+  --fs-paragraph: 0.875rem;
+  --fs-details: 0.8125rem;
+
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-semi-bold: 600;
+}
+
+.hiden {
+  display: none;
+}
+
+body {
+  display: grid;
+  place-content: center;
+  padding: 1.5rem;
+  background-color: var(--clr-bg-body);
+}
+
+.article {
+  background-color: hsl(0, 0%, 100%);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.article__image {
+  height: 220px;
+}
+
+.article__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.article__content {
+  padding-block-start: 2.5rem;
+  padding-inline: 2rem;
+  padding-block-end: 1.2rem;
+}
+
+.article__heading {
+  margin-block-end: 1rem;
+  font-size: var(--fs-heading);
+  font-weight: var(--fw-semi-bold);
+  color: var(--fc-heading);
+}
+
+.article__paragraph {
+  margin-block-end: 2rem;
+  font-size: var(--fs-paragraph);
+  font-weight: var(--fw-regular);
+  color: var(--fc-paragraph);
+}
+
+.article__details {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.article__author-image {
+  height: 2.5rem;
+  border-radius: 50%;
+}
+
+.article__details-author {
+  display: flex;
+  flex-direction: column;
+  font-size: var(--fs-details);
+}
+
+.article__details-author > :first-child {
+  font-weight: var(--fw-bold);
+  color: var(--fc-heading);
+}
+
+.article__details-author > :last-child {
+  font-weight: var(--fw-light);
+  color: var(--fc-details);
+}
+
+.article__share-button {
+  margin-inline-start: auto;
+  padding: 0.625rem;
+  background-color: var(--btn-clr);
+  border: none;
+  border-radius: 50%;
+}
+.article__share-button svg {
+}
