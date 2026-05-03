@@ -29,7 +29,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [GitHub Repo](https://github.com/S4ZCO/article-preview-component-frontent-mentor)
+- Solution URL: [GitHub Repo](https://s4zco.github.io/article-preview-component-frontent-mentor/)
 - Live Site URL: [Live site URL](https://your-live-site-url.com)
 
 ## My process
