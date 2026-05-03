@@ -1,6 +1,6 @@
 # Frontend Mentor - Article preview component solution
 
-This is a solution to the [Article preview component challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/article-preview-component-dYBN_pYFT). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+This is a solution to the [Article preview component challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/article-preview-component-dYBN_pYFT). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Table of contents
 
@@ -12,12 +12,7 @@ This is a solution to the [Article preview component challenge on Frontend Mento
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
   - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
-  - [AI Collaboration](#ai-collaboration)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
-
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
@@ -32,18 +27,10 @@ Users should be able to:
 
 ![](./screenshot.jpg)
 
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
-
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [GitHub Repo](https://github.com/S4ZCO/article-preview-component-frontent-mentor)
+- Live Site URL: [Live site URL](https://your-live-site-url.com)
 
 ## My process
 
@@ -54,69 +41,62 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+CSS triangles with borders:
+I learned how to create a tooltip arrow using only CSS borders. When an element has width: 0 and height: 0, each border becomes a triangle. Setting three of them to transparent leaves only the one you need visible.
 
-To see how you can add code snippets, see below:
+```css
+.article__share-element::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border: 8px solid transparent;
+  border-top-color: var(--clr-bg-share);
+}
+```
+
+`aria-hidden` and `focusable` on decorative SVGs:
+When an SVG is purely decorative and the button already has a label, the SVG should be hidden from screen readers with aria-hidden. focusable="false" is needed specifically for IE/Edge where SVGs are focusable by default.
 
 ```html
-<h1>Some HTML code I'm proud of</h1>
+<svg aria-hidden="true" focusable="false" ...></svg>
 ```
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
+
+`aria-label` for icon-only buttons:
+A button with only an SVG inside has no visible text, so screen readers have nothing to read. aria-label provides a meaningful description that only assistive technology uses.
+
+```html
+<button aria-label="Share on Twitter">
+  <svg aria-hidden="true" focusable="false" ... />
+</button>
 ```
+
+`aria-expanded` for toggle elements:
+When a button controls a panel that opens and closes, aria-expanded communicates the current state to screen readers. Without it, a screen reader user has no way of knowing if the panel is open or closed.
+
+```html
+<button
+  aria-label="Share article"
+  aria-expanded="false"
+  class="article__share-button"
+></button>
+```
+
 ```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
+shareButton.addEventListener("click", () => {
+  const isOpen = detailsElement.classList.contains("share");
+  shareButton.setAttribute("aria-expanded", !isOpen);
+});
 ```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
-
-### Useful resources
-
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
-
-### AI Collaboration
-
-Describe how you used AI tools (if any) during this project. This helps demonstrate your ability to work effectively with AI assistants.
-
-- What tools did you use (e.g., ChatGPT, Claude, GitHub Copilot)?
-- How did you use them (e.g., debugging, generating boilerplate, brainstorming solutions)?
-- What worked well? What didn't?
-
-**Note: Delete this note and the content above if you didn't use AI, or replace with your own experience.**
+Responsive behavior without JavaScript:
+I want to keep exploring how much behavior can be handled purely with CSS across breakpoints, reducing the need for JS to detect screen sizes. This project showed me that JS should only manage state and CSS should handle how that state looks at each breakpoint.
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+- Frontend Mentor - [@S4ZCO](https://www.frontendmentor.io/profile/S4ZCO)
+- Twitter - [@s4zco_Dev](https://x.com/s4zco_Dev)
