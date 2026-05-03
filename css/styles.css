@@ -156,6 +156,10 @@ button {
     overflow: hidden;
   }
 
+  .article__content {
+    margin: 0;
+  }
+
   .article__content,
   .article__details {
     padding-inline-start: 2.5rem;
@@ -168,7 +172,7 @@ button {
   .article__share-element {
     position: absolute;
     right: -4.5rem; /* alineado al borde del botón */
-    bottom: calc(100% + 1rem);
+    bottom: calc(100% + 0.3rem);
     padding-block: 1.7rem;
     padding-inline: 2rem;
     background-color: var(--clr-bg-share);
