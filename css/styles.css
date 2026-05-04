@@ -32,7 +32,7 @@ body {
   max-width: 340px;
   background-color: var(--clr-bg-article);
   border-radius: 10px;
-  box-shadow: 2px 5px 25px hsl(212, 23%, 69%);
+  box-shadow: 4px 20px 15px -5px rgba(0, 0, 0, 0.08);
   overflow: hidden;
 }
 
